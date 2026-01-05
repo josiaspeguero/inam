@@ -18,6 +18,8 @@
 
         public string NumeroTelefono { get; set; } = string.Empty;
 
+        public bool IsPagada { get; set; } = false; //verificar si la solicitud fue pagada
+
         public DateTime FechaSolicitud { get; set; }
     }
 }
