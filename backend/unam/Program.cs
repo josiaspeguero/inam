@@ -34,7 +34,16 @@ builder.Services.AddAutoMapper(conf =>
     conf.AddProfile<AutoMapperProfile>();
 });
 
-
+//cors
+builder.Services.AddCors(options => {
+    options.AddPolicy("global", options =>
+    {
+        options.AllowAnyHeader()
+        .AllowAnyMethod()
+        .WithOrigins("http://localhost:3000")
+        .AllowCredentials();
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -44,6 +53,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("global");
 
 app.UseAuthorization();
 
