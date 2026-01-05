@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using unam.Context;
+using unam.Domain.Interfaces;
+using unam.Domain.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,12 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+//interfaces
+builder.Services.AddScoped<ISolicitudesRepository, SolicitudesRepository>();
+builder.Services.AddScoped<IEstudiantesRepository, EstudiantesRepository>();
+builder.Services.AddScoped<ISeccionesRepository, SeccionesRepository>();
+builder.Services.AddScoped<IMaestrosRepository, MaestroRepository>();
+
 //appDbContext
 builder.Services.AddDbContext<ApplicationDbContext>(conf => conf.UseSqlServer("connectionString"));
 //automapper settings
@@ -16,6 +24,7 @@ builder.Services.AddAutoMapper(conf =>
 {
     conf.AddProfile<AutoMapperProfile>();
 });
+
 
 var app = builder.Build();
 
