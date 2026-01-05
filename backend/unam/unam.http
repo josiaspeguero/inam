@@ -1,0 +1,6 @@
+@unam_HostAddress = http://localhost:5135
+
+GET {{unam_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
