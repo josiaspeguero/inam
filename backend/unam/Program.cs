@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using unam.Context;
 using unam.Domain.Interfaces;
 using unam.Domain.Repositories;
+using unam.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,9 @@ builder.Services.AddScoped<ISolicitudesRepository, SolicitudesRepository>();
 builder.Services.AddScoped<IEstudiantesRepository, EstudiantesRepository>();
 builder.Services.AddScoped<ISeccionesRepository, SeccionesRepository>();
 builder.Services.AddScoped<IMaestrosRepository, MaestroRepository>();
+
+//trasient
+builder.Services.AddTransient<IEnviarAviso>();
 
 //appDbContext
 builder.Services.AddDbContext<ApplicationDbContext>(conf => conf.UseSqlServer("connectionString"));
