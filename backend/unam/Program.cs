@@ -21,6 +21,7 @@ builder.Services.AddScoped<IMaestrosRepository, MaestroRepository>();
 
 //usecases
 builder.Services.AddScoped<CrearSolicitud>();
+builder.Services.AddScoped<VerSolicitudes>();
 
 //trasient
 builder.Services.AddTransient<IEnviarAviso>();

@@ -1,4 +1,5 @@
-﻿using unam.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using unam.Context;
 using unam.Domain.Entities;
 using unam.Domain.Interfaces;
 
@@ -26,6 +27,11 @@ namespace unam.Domain.Repositories
         {
             var result = await _dbContext.SaveChangesAsync();
             return result > 0;
+        }
+
+        public async Task<IEnumerable<Solicitud?>> ListarSolicitudes(string correo)
+        {
+            return await _dbContext.Solicitudes.Where(e => e.Correo == correo).ToListAsync();
         }
     }
 }

@@ -9,10 +9,12 @@ namespace unam.Controllers
     public class SolicitudesController : ControllerBase
     {
         private readonly CrearSolicitud _crearSolicitud;
+        private readonly VerSolicitudes _verSolicitudes;
 
-        public SolicitudesController(CrearSolicitud crearSolicitud)
+        public SolicitudesController(CrearSolicitud crearSolicitud, VerSolicitudes verSolicitudes)
         {
             _crearSolicitud = crearSolicitud;
+            _verSolicitudes = verSolicitudes;
         }
         [HttpPost("crear-solicitud")]
         public async Task<ActionResult> CrearSolicitud(SolicitudDTO solicitud)
@@ -23,6 +25,13 @@ namespace unam.Controllers
                 return BadRequest(res.message);
             }
             return Ok(res.message);
+        }
+
+        [HttpGet("mis-solicitudes/{correo}")]
+        public async Task<ActionResult> ListarSolicitudes(string correo)
+        {
+            var res = await _verSolicitudes.ViewAsync(correo);
+            return Ok(res);
         }
     }
 }
