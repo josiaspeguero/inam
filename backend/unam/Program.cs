@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Text.Json;
 using unam.Application.UseCases;
 using unam.Context;
 using unam.Domain.Interfaces;
@@ -79,6 +80,17 @@ builder.Services.AddAuthentication(option =>
 
 
 var app = builder.Build();
+
+//manejo de falta de autorizacion 401
+app.UseStatusCodePages(async context =>
+{
+    context.HttpContext.Response.StatusCode = 401;
+    var mensaje = JsonSerializer.Serialize(new
+    {
+        mensaje = "Debe estar autenticado para acceder"
+    });
+    await context.HttpContext.Response.WriteAsync(mensaje);
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
