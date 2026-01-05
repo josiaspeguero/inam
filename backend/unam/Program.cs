@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using unam.Application.UseCases;
 using unam.Context;
 using unam.Domain.Interfaces;
 using unam.Domain.Repositories;
@@ -17,6 +18,9 @@ builder.Services.AddScoped<ISolicitudesRepository, SolicitudesRepository>();
 builder.Services.AddScoped<IEstudiantesRepository, EstudiantesRepository>();
 builder.Services.AddScoped<ISeccionesRepository, SeccionesRepository>();
 builder.Services.AddScoped<IMaestrosRepository, MaestroRepository>();
+
+//usecases
+builder.Services.AddScoped<CrearSolicitud>();
 
 //trasient
 builder.Services.AddTransient<IEnviarAviso>();
