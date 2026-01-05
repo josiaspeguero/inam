@@ -10,6 +10,7 @@
         public int Edad { get; set; }
 
         public string NoDocumento { get; set; } = string.Empty;
+        public string Correo { get; set; } = string.Empty;
 
         public string Padres { get; set; } = string.Empty;
 
