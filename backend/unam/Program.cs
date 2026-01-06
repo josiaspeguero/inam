@@ -7,6 +7,7 @@ using unam.Application.UseCases;
 using unam.Context;
 using unam.Domain.Interfaces;
 using unam.Domain.Repositories;
+using unam.Middlewares;
 using unam.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -103,6 +104,8 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 
 app.UseCors("global");
+
+app.UseMiddleware<HandleGlobalMiddleware>();
 
 app.UseAuthorization();
 
