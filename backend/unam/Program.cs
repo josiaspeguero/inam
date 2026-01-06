@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -80,6 +81,17 @@ builder.Services.AddAuthentication(option =>
 });
 
 
+//ratelimiting
+builder.Services.AddRateLimiter(options =>
+{
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    options.AddFixedWindowLimiter("fixed-ip", optionsLimiter =>
+    {
+        optionsLimiter.PermitLimit = 10;
+        optionsLimiter.Window = TimeSpan.FromMinutes(1);
+    });
+});
+//builder
 var app = builder.Build();
 
 //manejo de falta de autorizacion 401
