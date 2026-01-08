@@ -1,4 +1,5 @@
-﻿using unam.Domain.Entities;
+﻿using unam.Application.DTOs;
+using unam.Domain.Entities;
 
 namespace unam.Domain.Interfaces
 {
@@ -6,7 +7,8 @@ namespace unam.Domain.Interfaces
     {
         Task AgregarUsuarioAsync(Usuario usuario);
         Task<Usuario?> BuscarUsuarioAsync(string correo);
+        Task<Usuario?> IniciarSesionAsync(IniciarSesionDTO iniciarSesionDTO);
         Task<bool> GuardarUsuarioAsync();
-        Task<Usuario?> ActualizarUsuarioAsync(Usuario usuario);
+        Task ActualizarUsuarioAsync(Usuario usuario);
     }
 }

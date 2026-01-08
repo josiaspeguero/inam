@@ -29,6 +29,7 @@ builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<CrearSolicitud>();
 builder.Services.AddScoped<VerSolicitudes>();
 builder.Services.AddScoped<CrearCuenta>();
+builder.Services.AddScoped<IniciarSesion>();
 
 //trasient
 builder.Services.AddTransient<IEnviarAviso>();

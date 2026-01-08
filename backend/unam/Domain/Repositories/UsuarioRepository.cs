@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using unam.Application.DTOs;
 using unam.Context;
 using unam.Domain.Entities;
 using unam.Domain.Interfaces;
@@ -13,14 +14,9 @@ namespace unam.Domain.Repositories
         {
             _dbContext = dbContext;
         }
-        public async Task<Usuario?> ActualizarUsuarioAsync(Usuario usuario)
+        public async Task ActualizarUsuarioAsync(Usuario usuario)
         {
-            var res = await _dbContext.Usuarios.FirstOrDefaultAsync(u => u.Correo == usuario.Correo);
-            if (res != null)
-            {
-                throw new Exception("No se ha encontrado el usuario");
-            }
-            return res;
+            _dbContext.Usuarios.Update(usuario);
         }
 
         public async Task AgregarUsuarioAsync(Usuario usuario)
@@ -39,6 +35,14 @@ namespace unam.Domain.Repositories
         {
             var res = await _dbContext.SaveChangesAsync();
             return res > 0;
+        }
+
+        public async Task<Usuario?> IniciarSesionAsync(IniciarSesionDTO iniciarSesionDTO)
+        {
+
+            return await _dbContext.Usuarios
+                .Where(u => u.Correo == iniciarSesionDTO.Correo && u.Contrasena == iniciarSesionDTO.Contrasena)
+                .FirstOrDefaultAsync();
         }
     }
 }

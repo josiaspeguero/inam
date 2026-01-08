@@ -2,6 +2,6 @@
 {
     public interface IToken
     {
-        (string accessToken, string refreshToken) GenerateCookie(string username);
+        (string accessToken, string refreshToken) GenerateToken(string username);
     }
 }

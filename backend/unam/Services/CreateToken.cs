@@ -14,7 +14,7 @@ namespace unam.Services
         {
             _configuration = configuration;
         }
-        public (string accessToken, string refreshToken) GenerateCookie(string username)
+        public (string accessToken, string refreshToken) GenerateToken(string username)
         {
             var jwtSettings = _configuration.GetSection("jwt");
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["key"]!));
