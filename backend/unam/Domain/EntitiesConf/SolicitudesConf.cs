@@ -12,6 +12,12 @@ namespace unam.Domain.EntitiesConf
             builder.Property(x => x.Nombre).HasMaxLength(100).IsRequired();
             builder.Property(x => x.Apellido).HasMaxLength(100).IsRequired();
             builder.Property(x => x.NoDocumento).HasMaxLength(30).IsRequired();
+
+            //relaciones
+            builder.HasOne(s => s.Usuario)
+                .WithMany(u => u.Solicitudes)
+                .HasForeignKey(s => s.UsuarioID)
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

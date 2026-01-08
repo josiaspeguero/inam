@@ -10,8 +10,6 @@
 
         public string Pin { get; set; } = string.Empty;
 
-        public ICollection<Solicitud> Solicitudes { get; set; } = new List<Solicitud>();
-
         public DateTime FechaIngreso { get; set; }
 
     }

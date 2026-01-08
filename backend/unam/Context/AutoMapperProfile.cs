@@ -12,6 +12,7 @@ namespace unam.Context
             CreateMap<EstudianteDTO, Estudiante>().ReverseMap();
             CreateMap<SeccionDTO, Seccion>().ReverseMap();
             CreateMap<MaestroDTO, Maestro>().ReverseMap();
+            CreateMap<UsuarioDTO, Usuario>().ReverseMap();
         }
     }
 }
