@@ -4,7 +4,7 @@ using System.Net.Mail;
 
 namespace unam.Services
 {
-    public class EnviarMensajePorEmail : IEnviarAviso
+    public class EnviarMensajePorEmail : IEnviarMensaje
     {
         private readonly IConfiguration _configuration;
         private readonly ILogger<EnviarMensajePorEmail> _logger;
