@@ -30,9 +30,10 @@ builder.Services.AddScoped<CrearSolicitud>();
 builder.Services.AddScoped<VerSolicitudes>();
 builder.Services.AddScoped<CrearCuenta>();
 builder.Services.AddScoped<IniciarSesion>();
+builder.Services.AddScoped<AgregarMaestro>();
 
 //trasient
-builder.Services.AddTransient<IEnviarAviso>();
+builder.Services.AddTransient<IEnviarMensaje>();
 
 //appDbContext
 builder.Services.AddDbContext<ApplicationDbContext>(conf => conf.UseSqlServer("connectionString"));
