@@ -23,10 +23,12 @@ builder.Services.AddScoped<ISolicitudesRepository, SolicitudesRepository>();
 builder.Services.AddScoped<IEstudiantesRepository, EstudiantesRepository>();
 builder.Services.AddScoped<ISeccionesRepository, SeccionesRepository>();
 builder.Services.AddScoped<IMaestrosRepository, MaestroRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 //usecases
 builder.Services.AddScoped<CrearSolicitud>();
 builder.Services.AddScoped<VerSolicitudes>();
+builder.Services.AddScoped<CrearCuenta>();
 
 //trasient
 builder.Services.AddTransient<IEnviarAviso>();

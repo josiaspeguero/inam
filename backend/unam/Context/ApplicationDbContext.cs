@@ -21,5 +21,6 @@ namespace unam.Context
         public DbSet<Estudiante> Estudiantes => Set<Estudiante>();
         public DbSet<Maestro> Maestros => Set<Maestro>();
         public DbSet<Seccion> Secciones => Set<Seccion>();
+        public DbSet<Usuario> Usuarios => Set<Usuario>();
     }
 }
