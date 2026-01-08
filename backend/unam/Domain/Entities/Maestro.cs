@@ -10,5 +10,6 @@
         public string Domicilio { get; set; } = string.Empty;
         public string Telefono { get; set; } = string.Empty;
         public DateTime FechaIngreso { get; set; }
+        public Seccion? Seccion { get; set; }
     }
 }
