@@ -2,9 +2,9 @@
 {
     public class CreateCookie : ICookie
     {
-        private readonly HttpContextAccessor _httpContext;
+        private readonly IHttpContextAccessor _httpContext;
 
-        public CreateCookie(HttpContextAccessor httpContext)
+        public CreateCookie(IHttpContextAccessor httpContext)
         {
             _httpContext = httpContext;
         }

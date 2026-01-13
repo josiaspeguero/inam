@@ -18,10 +18,10 @@ namespace unam.Services
         {
             try
             {
-                var usuarioAdmin = _configuration.GetValue<string>("usuario: admin");
-                var credenciales = _configuration.GetValue<string>("usuario:credentials");
-                var host = _configuration.GetValue<string>("usuario:host");
-                var port = _configuration.GetValue<int>("usuario:port");
+                var usuarioAdmin = _configuration.GetValue<string>("SMTP_CLIENT: USER");
+                var credenciales = _configuration.GetValue<string>("SMTP_CLIENT:PASSWORD");
+                var host = _configuration.GetValue<string>("SMTP_CLIENT:HOST");
+                var port = _configuration.GetValue<int>("SMTP_CLIENT:PORT");
 
                 using (var smtpClient = new SmtpClient(host, port))
                 {
