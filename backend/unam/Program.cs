@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -10,13 +11,16 @@ using unam.Domain.Interfaces;
 using unam.Domain.Repositories;
 using unam.Middlewares;
 using unam.Services;
+using Swashbuckle.AspNetCore.SwaggerUI;
+
 
 var builder = WebApplication.CreateBuilder(args);
-
+//swager
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 // Add services to the container.
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+
 
 //interfaces
 builder.Services.AddScoped<ISolicitudesRepository, SolicitudesRepository>();
@@ -24,6 +28,9 @@ builder.Services.AddScoped<IEstudiantesRepository, EstudiantesRepository>();
 builder.Services.AddScoped<ISeccionesRepository, SeccionesRepository>();
 builder.Services.AddScoped<IMaestrosRepository, MaestroRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IToken, CreateToken>();
+builder.Services.AddScoped<ICookie, CreateCookie>();
+builder.Services.AddHttpContextAccessor();
 
 //usecases
 builder.Services.AddScoped<CrearSolicitud>();
@@ -31,12 +38,15 @@ builder.Services.AddScoped<VerSolicitudes>();
 builder.Services.AddScoped<CrearCuenta>();
 builder.Services.AddScoped<IniciarSesion>();
 builder.Services.AddScoped<AgregarMaestro>();
+builder.Services.AddScoped<AgregarEstudiante>();
+builder.Services.AddScoped<AprobarSolicitud>();
 
 //trasient
-builder.Services.AddTransient<IEnviarMensaje>();
+builder.Services.AddTransient<IEnviarMensaje, EnviarMensajePorEmail>();
 
 //appDbContext
-builder.Services.AddDbContext<ApplicationDbContext>(conf => conf.UseSqlServer("connectionString"));
+builder.Services.AddDbContext<ApplicationDbContext>(conf => conf.UseSqlServer(
+    builder.Configuration.GetConnectionString("DefaultConnection")));
 //automapper settings
 builder.Services.AddAutoMapper(conf =>
 {
@@ -112,7 +122,8 @@ app.UseStatusCodePages(async context =>
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

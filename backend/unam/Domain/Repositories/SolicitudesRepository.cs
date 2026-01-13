@@ -25,13 +25,24 @@ namespace unam.Domain.Repositories
 
         public async Task<bool> GuardarSolicitud()
         {
-            var result = await _dbContext.SaveChangesAsync();
-            return result > 0;
+            try
+            {
+                var result = await _dbContext.SaveChangesAsync();
+                if (result <= 0)
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public async Task<IEnumerable<Solicitud?>> ListarSolicitudes(string correo)
+        public async Task<Solicitud?> ListarSolicitudes(string correo)
         {
-            return await _dbContext.Solicitudes.Where(e => e.Correo == correo).ToListAsync();
+            return await _dbContext.Solicitudes.Where(s => s.Correo == correo && s.IsAprobada == false).FirstOrDefaultAsync();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace unam.Application.UseCases
         {
             _solicitudes = solicitudes;
         }
-        public async Task<IEnumerable<Solicitud?>> ViewAsync(string correo)
+        public async Task<Solicitud?> ViewAsync(string correo)
         {
             var res = await _solicitudes.ListarSolicitudes(correo);
             return res;
