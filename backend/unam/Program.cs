@@ -40,6 +40,8 @@ builder.Services.AddScoped<IniciarSesion>();
 builder.Services.AddScoped<AgregarMaestro>();
 builder.Services.AddScoped<AgregarEstudiante>();
 builder.Services.AddScoped<AprobarSolicitud>();
+builder.Services.AddScoped<SesionMaestro>();
+builder.Services.AddScoped<SesionEstudiante>();
 
 //trasient
 builder.Services.AddTransient<IEnviarMensaje, EnviarMensajePorEmail>();
