@@ -4,11 +4,11 @@ using unam.Domain.Entities;
 
 namespace unam.Domain.EntitiesConf
 {
-    public class EstudiantesConf : IEntityTypeConfiguration<Estudiante>
-    {
-        public void Configure(EntityTypeBuilder<Estudiante> builder)
-        {
-            throw new NotImplementedException();
-        }
+    public class EstudiantesConf {  //IEntityTypeConfiguration<Estudiante>
+    //{
+    //    public void Configure(EntityTypeBuilder<Estudiante> builder)
+    //    {
+            
+    //    }
     }
 }

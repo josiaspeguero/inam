@@ -4,11 +4,11 @@ using unam.Domain.Entities;
 
 namespace unam.Domain.EntitiesConf
 {
-    public class SeccionesConf : IEntityTypeConfiguration<Seccion>
+    public class SeccionesConf //IEntityTypeConfiguration<Seccion>
     {
-        public void Configure(EntityTypeBuilder<Seccion> builder)
-        {
-            throw new NotImplementedException();
-        }
+        //public void Configure(EntityTypeBuilder<Seccion> builder)
+        //{
+            
+        //}
     }
 }

@@ -17,7 +17,7 @@ namespace unam.Domain.EntitiesConf
             builder.HasOne(s => s.Usuario)
                 .WithMany(u => u.Solicitudes)
                 .HasForeignKey(s => s.UsuarioID)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

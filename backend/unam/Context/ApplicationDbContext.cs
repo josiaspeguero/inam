@@ -14,9 +14,7 @@ namespace unam.Context
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
-        protected ApplicationDbContext()
-        {
-        }
+
         public DbSet<Solicitud> Solicitudes => Set<Solicitud>();
         public DbSet<Estudiante> Estudiantes => Set<Estudiante>();
         public DbSet<Maestro> Maestros => Set<Maestro>();
