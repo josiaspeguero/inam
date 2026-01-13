@@ -30,9 +30,16 @@ namespace unam.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AccessToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CorreoEstudiantil")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ExpireToken")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("FechaIngreso")
                         .HasColumnType("datetime2");
@@ -41,13 +48,16 @@ namespace unam.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Pin")
+                    b.Property<int>("Pin")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RefreshToken")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Estudiantes", (string)null);
+                    b.ToTable("Estudiantes");
                 });
 
             modelBuilder.Entity("unam.Domain.Entities.Maestro", b =>
@@ -57,6 +67,10 @@ namespace unam.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AccessToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Apellido")
                         .IsRequired()
@@ -76,6 +90,9 @@ namespace unam.Migrations
                     b.Property<int>("Edad")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("ExpireToken")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("FechaIngreso")
                         .HasColumnType("datetime2");
 
@@ -90,13 +107,17 @@ namespace unam.Migrations
                     b.Property<int>("Pin")
                         .HasColumnType("int");
 
+                    b.Property<string>("RefreshToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Telefono")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Maestros", (string)null);
+                    b.ToTable("Maestros");
                 });
 
             modelBuilder.Entity("unam.Domain.Entities.Seccion", b =>
@@ -123,7 +144,7 @@ namespace unam.Migrations
                         .IsUnique()
                         .HasFilter("[MaestroAsignadoId] IS NOT NULL");
 
-                    b.ToTable("Secciones", (string)null);
+                    b.ToTable("Secciones");
                 });
 
             modelBuilder.Entity("unam.Domain.Entities.Solicitud", b =>
@@ -153,7 +174,7 @@ namespace unam.Migrations
                     b.Property<DateTime>("FechaSolicitud")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsPagada")
+                    b.Property<bool>("IsAprobada")
                         .HasColumnType("bit");
 
                     b.Property<string>("NoDocumento")
@@ -185,7 +206,7 @@ namespace unam.Migrations
 
                     b.HasIndex("UsuarioID");
 
-                    b.ToTable("Solicitudes", (string)null);
+                    b.ToTable("Solicitudes");
                 });
 
             modelBuilder.Entity("unam.Domain.Entities.Usuario", b =>
@@ -220,7 +241,7 @@ namespace unam.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuarios", (string)null);
+                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("unam.Domain.Entities.Seccion", b =>

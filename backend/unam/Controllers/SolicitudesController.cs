@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using unam.Application.DTOs;
 using unam.Application.UseCases;
 
@@ -38,6 +39,7 @@ namespace unam.Controllers
         }
 
         //aporbar solicitud
+        [Authorize]
         [HttpPost("aprobar-solicitud")]
         public async Task<ActionResult> AprobarSolicitud(string correo)
         {
