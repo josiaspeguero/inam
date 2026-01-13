@@ -15,7 +15,7 @@ namespace unam.Application.UseCases
         public async Task<string> AgregarEstudianteTask(Solicitud solicitud)
         {
             var matricula = _random.Next(100000, 999999).ToString();
-            var pin = _random.Next(10000, 99999).ToString();
+            var pin = _random.Next(10000, 99999);
             var nuevoEstudiante = new Estudiante
             {
                 FechaIngreso = DateTime.UtcNow,

@@ -39,7 +39,7 @@ namespace unam.Application.UseCases
                 await _agregarMaestro.AgregarMaestroTask(solicitudExistente);
             }
 
-            return (true, "Solicitud actualizada");
+            return (true, "Solicitud Aprobada");
         }
     }
 }

@@ -25,7 +25,7 @@ namespace unam.Application.UseCases
                 Nombre = solicitud.Nombre,
                 Apellido = solicitud.Apellido,
                 Edad = solicitud.Edad,
-                CorreoInstitucional = solicitud.Nombre + "unad.edu.do",
+                CorreoInstitucional = solicitud.Nombre.ToLower() + "@unad.edu.do",
                 Pin = _random.Next(10000, 99999),
                 NoDocumento = solicitud.NoDocumento,
                 Domicilio = solicitud.Domicilio,
