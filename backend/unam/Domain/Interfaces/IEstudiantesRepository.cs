@@ -1,4 +1,5 @@
-﻿using unam.Domain.Entities;
+﻿using unam.Application.DTOs;
+using unam.Domain.Entities;
 
 namespace unam.Domain.Interfaces
 {
@@ -7,5 +8,6 @@ namespace unam.Domain.Interfaces
         Task AgregarEstudiante(Estudiante estudiante);
         Task<bool> GuardarEstudiante();
         Task<bool> ActualizarEstudiante(Estudiante estudiante);
+        Task<Estudiante?> AccederAsync(IniciarSesionDTO iniciarSesion);
     }
 }

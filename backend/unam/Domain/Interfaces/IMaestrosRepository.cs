@@ -1,4 +1,5 @@
-﻿using unam.Domain.Entities;
+﻿using unam.Application.DTOs;
+using unam.Domain.Entities;
 
 namespace unam.Domain.Interfaces
 {
@@ -7,5 +8,6 @@ namespace unam.Domain.Interfaces
         Task AgregarMaestroAsync(Maestro maestro);
         Task<bool> GuardarMaestroAsync();
         Task<bool> ActualizarMaestroAsync(Maestro maestro);
+        Task<Maestro?> AccederAsync(IniciarSesionDTO iniciarSesion);
     }
 }

@@ -1,4 +1,6 @@
-﻿using unam.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using unam.Application.DTOs;
+using unam.Context;
 using unam.Domain.Entities;
 using unam.Domain.Interfaces;
 
@@ -12,6 +14,14 @@ namespace unam.Domain.Repositories
         {
             _dbContext = dbContext;
         }
+
+        public async Task<Estudiante?> AccederAsync(IniciarSesionDTO iniciarSesion)
+        {
+            var res = await _dbContext.Estudiantes.Where(e => e.CorreoEstudiantil == iniciarSesion.Correo
+            && e.Pin.ToString() == iniciarSesion.Contrasena).FirstOrDefaultAsync();
+            return res;
+        }
+
         public Task<bool> ActualizarEstudiante(Estudiante estudiante)
         {
             throw new NotImplementedException();
