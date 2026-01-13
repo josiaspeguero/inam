@@ -8,7 +8,10 @@
 
         public string CorreoEstudiantil { get; set; } = string.Empty;
 
-        public string Pin { get; set; } = string.Empty;
+        public int Pin { get; set; } 
+        public string AccessToken { get; set; } = string.Empty;
+        public string RefreshToken { get; set; } = string.Empty;
+        public DateTime ExpireToken { get; set; }
 
         public DateTime FechaIngreso { get; set; }
 
