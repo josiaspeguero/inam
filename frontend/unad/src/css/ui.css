@@ -1,0 +1,12 @@
+.ui-button {
+  padding: 15px 30px;
+  border-radius: 3px;
+  border: none;
+  background: #0e66ea;
+  color: #f1f1f1;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
