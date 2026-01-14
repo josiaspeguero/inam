@@ -1,0 +1,130 @@
+.auth-section {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 80px;
+  background: #f1f1f1;
+}
+.auth-section .auth-header {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  color: #3b3b3b;
+}
+
+.auth-header .auth-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+}
+.auth-header .header-line {
+  height: 1px;
+  width: 80%;
+  margin-left: 10%;
+  background: linear-gradient(to right, #d6d6d6, #787777, #b6b6b6);
+  margin-top: 40px;
+}
+
+.auth-title hr:nth-child(1) {
+  flex: 1;
+  margin-top: -10px;
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, #d6d6d6, #787777);
+}
+.auth-title hr:last-child {
+  flex: 1;
+  margin-top: -10px;
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, #787777, #b6b6b6);
+}
+.auth-header .auth-title h2 {
+  font-size: 60px;
+  text-transform: capitalize;
+  margin: 0 30px;
+}
+.auth-form {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 50px;
+}
+.auth-form .info-section {
+  width: 40%;
+  max-width: 350px;
+}
+.auth-form .info-section .linkedin-button {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 15px 15px;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #b6b6b6;
+}
+.linkedin-button .icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  color: #f1f1f1;
+  background: #0356d3;
+  margin-right: 15px;
+}
+.linkedin-button p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #3b3b3b;
+}
+.linkedin-button span {
+  font-size: 14px;
+  color: #545353;
+}
+.auth-section .response-time {
+  margin-top: 25px;
+}
+
+.response-time .response-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  color: #787777;
+  font-size: 15px;
+}
+.form-section {
+  width: 60%;
+  max-width: 600px;
+  margin-left: 70px;
+  background: #fff;
+  padding: 50px 15px;
+  border: 1px solid #b6b6b6;
+  border-radius: 3px;
+}
+.form-section label{
+    color: #3b3b3b;
+    font-weight: 500;
+}
+.form-section input {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 1px solid #787777;
+  width: 100%;
+  padding: 8px 10px 8px 0;
+  font-size: 16px;
+  outline: none;
+  color: #818181;
+}
