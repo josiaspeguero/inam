@@ -9,4 +9,31 @@
   font-size: 16px;
   margin-top: 10px;
   cursor: pointer;
+  width: 170px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-text-disabled {
+  display: none;
+}
+.loader-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid rgba(243, 239, 239, 0.4);
+  border-top: 3px solid #ffff;
+  animation: loader-btn 1.3s infinite linear;
+}
+.loader-btn-disabled {
+  display: none;
+}
+@keyframes loader-btn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
