@@ -112,9 +112,9 @@
   border: 1px solid #b6b6b6;
   border-radius: 3px;
 }
-.form-section label{
-    color: #3b3b3b;
-    font-weight: 500;
+.form-section label {
+  color: #3b3b3b;
+  font-weight: 500;
 }
 .form-section input {
   display: block;
@@ -127,4 +127,41 @@
   font-size: 16px;
   outline: none;
   color: #818181;
+}
+@media (max-width: 1000px) {
+  .auth-section {
+    padding: 20px 30px;
+  }
+  .form-section {
+    margin-left: 0px;
+    background: #fff;
+  }
+  .auth-header .auth-title h2 {
+    font-size: 50px;
+    text-transform: capitalize;
+    margin: 0 30px;
+  }
+}
+
+@media (max-width: 750px) {
+  .auth-header .auth-title h2 {
+    font-size: 40px;
+  }
+  .auth-section {
+    padding: 20px;
+  }
+  .auth-form {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .auth-form .info-section {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .form-section {
+    width: 100%;
+    max-width: 100%;
+  }
 }

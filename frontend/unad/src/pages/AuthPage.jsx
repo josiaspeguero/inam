@@ -28,13 +28,13 @@ function AuthPage() {
             <hr />
           </div>
           <div className="auth-des">
-            <p>Inicia sesion para usar el sistema</p>
+            <p>Ingresa tus credenciales para iniciar sesion</p>
           </div>
           <div className="header-line"></div>
         </div>
         <div className="auth-form">
           <div className="info-section">
-            <Link to="/" className="linkedin-button">
+            <Link to="https://www.linkedin.com/in/josias-peguero/" className="linkedin-button">
               <div className="icon">
                 <FaLinkedin />
               </div>
